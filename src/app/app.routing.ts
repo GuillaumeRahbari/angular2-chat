@@ -1,11 +1,11 @@
 import { Routes, RouterModule } from "@angular/router";
 
-import { NameRoutes }  from "./name/index";
+import { HomeRoutes }  from "./home/index";
 
 import {ModuleWithProviders} from "@angular/core";
 
 export const appRoutes: Routes = [
-    ...NameRoutes
+    ...HomeRoutes
 ];
 
 export const appRoutingProviders: any[] = [ ];
