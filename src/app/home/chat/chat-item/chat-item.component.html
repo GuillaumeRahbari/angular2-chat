@@ -1,18 +1,16 @@
 <div>
   Welcome {{user.name}}
 
-  <div id="chatbox"></div>
+  <div id="chatbox">
+    <div *ngFor="let message of messages">{{message.user.name}} : {{message.message}}</div>
+  </div>
 
   <form (ngSubmit)="onSubmit()" #chatForm="ngForm">
     <div class="form-group">
       <input type="text" class="form-control" id="userMsg"
              placeholder="User message"
-             [(ngModel)]="userMsg" name="userMsg" #usermsg="ngModel"
+             [(ngModel)]="userMsg" name="userMsg"
              required >
-      <div [hidden]="usermsg.valid || usermsg.pristine"
-           class="alert alert-danger">
-        Message is required
-      </div>
     </div>
     <button type="submit" class="btn btn-default" [disabled]="!chatForm.form.valid">Submit</button>
   </form>

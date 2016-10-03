@@ -5,17 +5,21 @@ import {Message} from "../models/message";
 @Injectable()
 export class MessageService {
 
+  messages: Message[];
+
   // Observable Message sources
-  private messageSource: Subject<Message> = new Subject<Message>();
+  private messagesSource: Subject<Message[]> = new Subject<Message[]>();
 
   // Observable Message streams
-  messageObservable = this.messageSource.asObservable();
+  messagesObservable = this.messagesSource.asObservable();
 
   constructor() {
+    this.messages = [];
   }
 
   addMessage(message : Message) {
-    this.messageSource.next(message);
+    this.messages.push(message);
+    this.messagesSource.next(this.messages);
   }
 
 }
