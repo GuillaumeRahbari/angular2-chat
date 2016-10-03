@@ -6,10 +6,10 @@ import { Subject }    from 'rxjs/Subject';
 @Injectable()
 export class UserService {
 
-  // Observable User[] sources
+  // Observable User sources
   private userSource: Subject<User> = new Subject<User>();
 
-  // Observable User[] streams
+  // Observable User streams
   userObservable = this.userSource.asObservable();
 
   constructor(private uuidService: UuidService) {

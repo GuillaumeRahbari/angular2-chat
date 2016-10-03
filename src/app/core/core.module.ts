@@ -4,7 +4,7 @@ import {
 
 import { CommonModule }      from '@angular/common';
 
-import { UserService, UuidService }       from './index';
+import { UserService, UuidService, MessageService }       from './index';
 
 @NgModule({
   imports:      [ CommonModule ],
@@ -26,7 +26,8 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         UserService,
-        UuidService
+        UuidService,
+        MessageService
       ]
     };
   }
