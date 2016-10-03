@@ -20,7 +20,11 @@ export class NameComponent {
    */
   onSubmit() {
     this.userService.addUser(new User(this.userName));
+    this.resetUserName()
   }
 
+  private resetUserName() {
+    this.userName = '';
+  }
 }
 
