@@ -6,26 +6,18 @@ import { Subject }    from 'rxjs/Subject';
 @Injectable()
 export class UserService {
 
-  private users: User[];
-
   // Observable User[] sources
-  private usersSource: Subject<User[]> = new Subject<User[]>();
+  private userSource: Subject<User> = new Subject<User>();
 
   // Observable User[] streams
-  usersObservable = this.usersSource.asObservable();
+  userObservable = this.userSource.asObservable();
 
   constructor(private uuidService: UuidService) {
-    this.users = [];
-  }
-
-  getUsers(){
-    return this.users;
   }
 
   addUser(user : User) {
     user.id = this.uuidService.generateUUID();
-    this.users.push(user);
-    this.usersSource.next(this.users);
+    this.userSource.next(user);
   }
 
 }

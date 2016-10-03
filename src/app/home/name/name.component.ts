@@ -20,7 +20,6 @@ export class NameComponent {
    */
   onSubmit() {
     this.userService.addUser(new User(this.userName));
-    console.log(this.userService.getUsers());
   }
 
 }

@@ -12,9 +12,10 @@ export class ChatComponent{
   users: User[];
 
   constructor(private userService: UserService) {
-    userService.usersObservable.subscribe(
-      users => {
-        this.users = users;
+    this.users= [];
+    userService.userObservable.subscribe(
+      user => {
+        this.users.push(user);
       }
     );
   }
