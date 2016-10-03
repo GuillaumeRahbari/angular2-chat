@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {UserService} from "../../core/user.service";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.sass']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent{
 
-  constructor() { }
+  users: User[];
 
-  ngOnInit() {
+  constructor(private userService: UserService) {
+    userService.usersObservable.subscribe(
+      users => {
+        this.users = users;
+      }
+    );
   }
+
+
 
 }
